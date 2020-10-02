@@ -1,0 +1,56 @@
+INFORME DE CORRECCION SpanningTreePrim
+================================================================================
+
+Fecha: 02/10/2020
+Hora: 17:33:44
+Ejecutable: x64\Debug\GraphApplication.exe
+
+ALUMNO: 1531236 MARTÍNEZ ESPELLETA, Gerard Gerard.MartinezEs@e-campus.uab.cat
+
+================================================================================
+PRUEBA FALLA: senseArestes::SpanningTreePrim TIEMPO: 0.000080s. (0.000020s.)
+--------------------------------------------------------------------------------
+LeerTiempo: No se ha podido leer el tiempo del fichero: Outputs\senseArestes_SpanningTreePrim_Out.txt
+================================================================================
+PRUEBA FALLA POR TIEMPO: UnaAresta::SpanningTreePrim TIEMPO: 0.000139s. (0.000004s.)
+--------------------------------------------------------------------------------
+SPANNING TREE OK      : {V0001--(E0001)-->V0002}
+SPANNING TREE PRACTICA: {V0001--(E0001)-->V0002, V0001--(E0001)-->V0002}
+EDGES QUE HAY DE MAS: 
+EDGE(E0001,V0001-->V0002, 0)
+
+================================================================================
+PRUEBA FALLA POR TIEMPO: TresArestes::SpanningTreePrim TIEMPO: 0.000153s. (0.000004s.)
+--------------------------------------------------------------------------------
+SPANNING TREE OK      : {V0001--(E0001)-->V0002, V0001--(E0003)-->V0003}
+SPANNING TREE PRACTICA: {V0001--(E0001)-->V0002, V0001--(E0003)-->V0003, V0001--(E0001)-->V0002}
+EDGES QUE HAY DE MAS: 
+EDGE(E0001,V0001-->V0002, 0)
+
+================================================================================
+PRUEBA FALLA: Desconectat::SpanningTreePrim TIEMPO: 0.000032s. (0.000008s.)
+--------------------------------------------------------------------------------
+LeerTiempo: No se ha podido leer el tiempo del fichero: Outputs\Desconectat_SpanningTreePrim_Out.txt
+================================================================================
+PRUEBA FALLA POR TIEMPO: UAB_complet::SpanningTreePrim TIEMPO: 0.118652s. (0.000039s.)
+--------------------------------------------------------------------------------
+SPANNING TREE OK      : {V0019--(E0409$Reverse)-->V0018, V0020--(E0415$Reverse)-->V0019, V0002--(E0075)-->V0020, V0006--(E0149$Reverse)-->V0005, V0007--(E0181$Reverse)-->V0006, V0008--(E0211$Reverse)-->V0007, V0011--(E0311)-->V0012, V0010--(E0289)-->V0011, V0010--(E0265$Reverse)-->V0009, V0008--(E0241)-->V0010, V0017--(E0255$Reverse)-->V0008, V0014--(E0365)-->V0015, V0013--(E0349)-->V0014, V0021--(E0363$Reverse)-->V0013, V0017--(E0407)-->V0021, V0016--(E0391)-->V0017, V0004--(E0137)-->V0016, V0003--(E0079)-->V0004, V0001--(E0003)-->V0003, V0001--(E0001)-->V0002}
+SPANNING TREE PRACTICA: {V0019--(E0409$Reverse)-->V0018, V0020--(E0415$Reverse)-->V0019, V0002--(E0075)-->V0020, V0006--(E0149$Reverse)-->V0005, V0007--(E0181$Reverse)-->V0006, V0008--(E0211$Reverse)-->V0007, V0011--(E0311)-->V0012, V0010--(E0289)-->V0011, V0010--(E0265$Reverse)-->V0009, V0008--(E0241)-->V0010, V0017--(E0255$Reverse)-->V0008, V0014--(E0365)-->V0015, V0013--(E0349)-->V0014, V0021--(E0363$Reverse)-->V0013, V0017--(E0407)-->V0021, V0016--(E0391)-->V0017, V0004--(E0137)-->V0016, V0003--(E0079)-->V0004, V0001--(E0003)-->V0003, V0001--(E0001)-->V0002, V0001--(E0001)-->V0002}
+EDGES QUE HAY DE MAS: 
+EDGE(E0001,V0001-->V0002, 0)
+
+================================================================================
+PRUEBA FALLA: Graf100::SpanningTreePrim TIEMPO: 0.000608s. (0.000152s.)
+--------------------------------------------------------------------------------
+LeerTiempo: No se ha podido leer el tiempo del fichero: Outputs\Graf100_SpanningTreePrim_Out.txt
+================================================================================
+PRUEBA FALLA: Graf1000::SpanningTreePrim TIEMPO: 0.350696s. (0.087674s.)
+--------------------------------------------------------------------------------
+LeerTiempo: No se ha podido leer el tiempo del fichero: Outputs\Graf1000_SpanningTreePrim_Out.txt
+================================================================================
+RESUMEN ========================================================================
+================================================================================
+PRUEBAS OK (0): 
+PRUEBAS NOK(7): senseArestes::SpanningTreePrim, UnaAresta::SpanningTreePrim, TresArestes::SpanningTreePrim, Desconectat::SpanningTreePrim, UAB_complet::SpanningTreePrim, Graf100::SpanningTreePrim, Graf1000::SpanningTreePrim
+TIEMPO: 0.351604.s (0.087901s.)
+NOTA: 0.000000

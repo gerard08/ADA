@@ -1,0 +1,17 @@
+Nom Alumne 1.....: Gerard
+Cognoms Alumne 1.: Martínez Espelleta
+NIU Alumne 1.....:1531236
+Alumnes.csv readed
+
+NARGS 4
+PARAMETROS:
+Algoritmo....: Prim
+Grafo........: TestSpanningTree\UAB_complet.GR
+SpanningTree.: Outputs\UAB_complet_SpanningTreePrim.TRE
+mapa_UAB.jpg
+Leer vertices
+Leer Aristas
+Fin lectura
+
+TIEMPO DE EJECUCION: 0.169001
+FIN EJECUCION COMANDOS

@@ -8,63 +8,23 @@ using namespace std;
 // SpanningTreePrim ============================================================
 // =============================================================================
 
-/*
-class minHeap
-{
-
-public:
-
-	minHeap();
-	void insert(CEdge* value);
-	CEdge* getFirst();
-	void pop() { if (!values.empty())values.pop_front(); };
-	int getNElements() { return int(values.size()); };
-	void neteja(CVertex v);
-	~minHeap() { /*if (!values.empty())values.~list(); };
-
-private:
-
-	list<CEdge*> values;
-};*/
-
-/*
-bool search(CVertex v, list<CVertex> lv)
-{
-	bool trobat = false;
-	list<CVertex>::iterator it = lv.begin();
-
-	while (!trobat && it != lv.end())
-	{
-		if ((*it).m_Name == v.m_Name)
-			trobat = true;
-		it++;
-	}
-	return trobat;
-}*/
 struct comparator 
 {
 	bool operator()(CEdge* pE1, CEdge* pE2) { return pE1->m_Length > pE2->m_Length; }
 };
 
 
-void neteja(CVertex*, priority_queue<CEdge*, std::vector<CEdge*>, comparator> queue)
-{
-	
-}
-
-
 CSpanningTree SpanningTreePrim(CGraph &graph)
 {
+	//CSpanningTree que retornarem com a resultat
 	CSpanningTree resultat(&graph);
 
 	if (graph.GetNEdges() != 0)
 	{
 		
+		//lista ordenada de candidats
 		priority_queue<CEdge*, std::vector<CEdge*>, comparator> llistaOrdenada;
 
-
-
-		//////////////////////////////////////////////
 		//minHeap llistaOrdenada;
 		
 		//variable per saber quants vertexs hem visitat
@@ -72,7 +32,7 @@ CSpanningTree SpanningTreePrim(CGraph &graph)
 		//variable per saber els vertexs que hem de visitar
 		int nVertexs = graph.GetNVertices();
 
-
+		//vertex des del que començarem
 		CVertex* vInicial = &(graph.m_Vertices.front());
 		
 		//posem una aresta a la llista de candidats per entrar al bucle
@@ -89,6 +49,7 @@ CSpanningTree SpanningTreePrim(CGraph &graph)
 			//esborrem la primera aresta de la llista
 			llistaOrdenada.pop();
 
+
 			for (list<CEdge*>::iterator eIter = vInicial->m_Edges.begin(); eIter != vInicial->m_Edges.end(); eIter++)
 			{
 				//si el vertex on apunta l'aresta no ha estat visitat, l'afegim a la llista de candidats
@@ -101,10 +62,12 @@ CSpanningTree SpanningTreePrim(CGraph &graph)
 			//si hi ha algun candidat a la llista
 			if (llistaOrdenada.size() > 0)
 			{
+				//si el primer candidat apunta a un node ja visitat el descartem
 				while (!llistaOrdenada.empty() && llistaOrdenada.top()->m_pDestination->visitat)
 				{
 					llistaOrdenada.pop();
 				}
+
 				if (!llistaOrdenada.empty())
 				{
 					//marco com a resposta el vertex amb menys cost dels candidats
@@ -121,80 +84,3 @@ CSpanningTree SpanningTreePrim(CGraph &graph)
 
 	return resultat;	
 }
-
-/*
-minHeap::minHeap()
-{
-	while (!values.empty())
-	{
-		values.pop_back();
-	}
-}
-
-
-void minHeap::insert(CEdge* value)
-{
-	list<CEdge*>::iterator it = values.begin();
-	bool end = false;
-
-	//si la llista es plena
-	if (!values.empty())
-	{
-		//recorrem la llista fins que el valor de la nostra aresta sigui inferior al valor de la de la llista
-		while (!end && *value >= *(*it))
-		{
-			it++;
-			if (it == values.end())
-			{
-				end = true;
-			}
-		}
-
-		//si no hem arribat al final de la llista
-		if (!end)
-			values.insert(it, value);
-
-		//si hem arribat
-		else
-			values.push_back(value);
-	}
-	//si la llista es buida el posem directament
-	else
-		values.push_back(value);
-}
-
-
-CEdge* minHeap::getFirst()
-{
-	if (!values.empty())
-	{
-		return values.front();
-	}
-}
-
-void minHeap::neteja(CVertex v)
-{
-	list<CEdge*>::iterator it = values.begin();
-	list<CEdge*>::iterator it2 = values.begin();
-	
-	if (values.size() > 1)
-	{
-		it2++;
-		while (it2 != values.end())
-		{
-			if ((*it)->m_pDestination->m_Name == v.m_Name)
-			{
-				values.erase(it);
-				it = it2;
-				it2++;
-			}
-			else
-			{
-				it++;
-				it2++;
-			}
-		}
-	}
-}
-*/
-

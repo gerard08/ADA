@@ -49,38 +49,47 @@ CSpanningTree SpanningTreePrim(CGraph &graph)
 	if (graph.GetNEdges() != 0)
 	{
 		minHeap llistaOrdenada;
-		list<CVertex> vertexsVisitats;
+		//list<CVertex> vertexsVisitats;
+		int nVertexsVisitats = 0;
 		int nVertexs = graph.GetNVertices();
 
-		CVertex	vInicial = graph.m_Vertices.front();
-		resultat.m_Edges.push_back(&(graph.m_Edges.front()));
-		llistaOrdenada.insert(vInicial.m_Edges.front());
+
+		CVertex* vInicial = &(graph.m_Vertices.front());
+		//resultat.m_Edges.push_back(&(graph.m_Edges.front()));
+
+		llistaOrdenada.insert(vInicial->m_Edges.front());
 
 		//poso el vertex actual com a vertex visitat
-		vertexsVisitats.push_back(vInicial);
+		//vertexsVisitats.push_back(vInicial);
+		vInicial->visitat = true;
+		nVertexsVisitats++;
 
-		while (llistaOrdenada.getNElements() > 0 && vertexsVisitats.size() < nVertexs)
+		while (llistaOrdenada.getNElements() > 0 && nVertexsVisitats < nVertexs)
 		{
 			//esborrem la primera aresta de la llista
 			llistaOrdenada.pop();
 			//eliminem els nodes 
-			llistaOrdenada.neteja(vInicial);
+			llistaOrdenada.neteja(*vInicial);
 
-			for (list<CEdge*>::iterator eIter = vInicial.m_Edges.begin(); eIter != vInicial.m_Edges.end(); eIter++)
+			for (list<CEdge*>::iterator eIter = vInicial->m_Edges.begin(); eIter != vInicial->m_Edges.end(); eIter++)
 			{
-				if (!search(*(*eIter)->m_pDestination, vertexsVisitats))
+				//si el vertex on apunta l'aresta no ha estat visitat, l'afegim a la llista de candidats
+				if (!(*eIter)->m_pDestination->visitat)
 				{
 					llistaOrdenada.insert(*eIter);
 				}
 
 			}
+			//si hi ha algun candidat a la llista
 			if (llistaOrdenada.getNElements() > 0)
 			{
+				//marco com a resposta el vertex amb menys cost dels candidats
 				resultat.m_Edges.push_back(llistaOrdenada.getFirst());
-				//marco com a nou vertex el que es el destí de la primera aresta de la llista
-				vInicial = *(llistaOrdenada.getFirst()->m_pDestination);
+				//marco com a nou vertex el que es el destí del vertex marcat com a resposta
+				vInicial = (llistaOrdenada.getFirst()->m_pDestination);
 				//poso el vertex actual com a vertex visitat
-				vertexsVisitats.push_back(vInicial);
+				vInicial->visitat = true;
+				nVertexsVisitats++;
 			}
 
 		}

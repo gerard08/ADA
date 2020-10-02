@@ -10,4 +10,3 @@ Grafo........: TestSpanningTree\Graf1000.GR
 SpanningTree.: Outputs\Graf1000_SpanningTreePrim.TRE
 Leer vertices
 Leer Aristas
-Fin lectura

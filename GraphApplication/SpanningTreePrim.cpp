@@ -8,6 +8,7 @@ using namespace std;
 // SpanningTreePrim ============================================================
 // =============================================================================
 
+/*
 class minHeap
 {
 
@@ -19,14 +20,14 @@ public:
 	void pop() { if (!values.empty())values.pop_front(); };
 	int getNElements() { return int(values.size()); };
 	void neteja(CVertex v);
-	~minHeap() { /*if (!values.empty())values.~list();*/ };
+	~minHeap() { /*if (!values.empty())values.~list(); };
 
 private:
 
 	list<CEdge*> values;
-};
+};*/
 
-
+/*
 bool search(CVertex v, list<CVertex> lv)
 {
 	bool trobat = false;
@@ -39,6 +40,16 @@ bool search(CVertex v, list<CVertex> lv)
 		it++;
 	}
 	return trobat;
+}*/
+struct comparator 
+{
+	bool operator()(CEdge* pE1, CEdge* pE2) { return pE1->m_Length > pE2->m_Length; }
+};
+
+
+void neteja(CVertex*, priority_queue<CEdge*, std::vector<CEdge*>, comparator> queue)
+{
+	
 }
 
 
@@ -48,57 +59,70 @@ CSpanningTree SpanningTreePrim(CGraph &graph)
 
 	if (graph.GetNEdges() != 0)
 	{
-		minHeap llistaOrdenada;
-		//list<CVertex> vertexsVisitats;
+		
+		priority_queue<CEdge*, std::vector<CEdge*>, comparator> llistaOrdenada;
+
+
+
+		//////////////////////////////////////////////
+		//minHeap llistaOrdenada;
+		
+		//variable per saber quants vertexs hem visitat
 		int nVertexsVisitats = 0;
+		//variable per saber els vertexs que hem de visitar
 		int nVertexs = graph.GetNVertices();
 
 
 		CVertex* vInicial = &(graph.m_Vertices.front());
-		//resultat.m_Edges.push_back(&(graph.m_Edges.front()));
-
-		llistaOrdenada.insert(vInicial->m_Edges.front());
+		
+		//posem una aresta a la llista de candidats per entrar al bucle
+		llistaOrdenada.push(vInicial->m_Edges.front());
 
 		//poso el vertex actual com a vertex visitat
-		//vertexsVisitats.push_back(vInicial);
 		vInicial->visitat = true;
+		//sumem el numero de vertexs visitats
 		nVertexsVisitats++;
 
-		while (llistaOrdenada.getNElements() > 0 && nVertexsVisitats < nVertexs)
+
+		while (llistaOrdenada.size() > 0 && nVertexsVisitats < nVertexs)
 		{
 			//esborrem la primera aresta de la llista
 			llistaOrdenada.pop();
-			//eliminem els nodes 
-			llistaOrdenada.neteja(*vInicial);
 
 			for (list<CEdge*>::iterator eIter = vInicial->m_Edges.begin(); eIter != vInicial->m_Edges.end(); eIter++)
 			{
 				//si el vertex on apunta l'aresta no ha estat visitat, l'afegim a la llista de candidats
 				if (!(*eIter)->m_pDestination->visitat)
 				{
-					llistaOrdenada.insert(*eIter);
+					llistaOrdenada.push(*eIter);
 				}
-
 			}
+
 			//si hi ha algun candidat a la llista
-			if (llistaOrdenada.getNElements() > 0)
+			if (llistaOrdenada.size() > 0)
 			{
-				//marco com a resposta el vertex amb menys cost dels candidats
-				resultat.m_Edges.push_back(llistaOrdenada.getFirst());
-				//marco com a nou vertex el que es el destí del vertex marcat com a resposta
-				vInicial = (llistaOrdenada.getFirst()->m_pDestination);
-				//poso el vertex actual com a vertex visitat
-				vInicial->visitat = true;
-				nVertexsVisitats++;
+				while (!llistaOrdenada.empty() && llistaOrdenada.top()->m_pDestination->visitat)
+				{
+					llistaOrdenada.pop();
+				}
+				if (!llistaOrdenada.empty())
+				{
+					//marco com a resposta el vertex amb menys cost dels candidats
+					resultat.m_Edges.push_back(llistaOrdenada.top());
+					//marco com a nou vertex el que es el destí del vertex marcat com a resposta
+					vInicial = (llistaOrdenada.top()->m_pDestination);
+					//poso el vertex actual com a vertex visitat
+					vInicial->visitat = true;
+					nVertexsVisitats++;
+				}
 			}
-
 		}
 	}
 
 	return resultat;	
 }
 
-
+/*
 minHeap::minHeap()
 {
 	while (!values.empty())
@@ -112,6 +136,7 @@ void minHeap::insert(CEdge* value)
 {
 	list<CEdge*>::iterator it = values.begin();
 	bool end = false;
+
 	//si la llista es plena
 	if (!values.empty())
 	{
@@ -125,10 +150,10 @@ void minHeap::insert(CEdge* value)
 			}
 		}
 
-			
 		//si no hem arribat al final de la llista
 		if (!end)
 			values.insert(it, value);
+
 		//si hem arribat
 		else
 			values.push_back(value);
@@ -144,10 +169,6 @@ CEdge* minHeap::getFirst()
 	if (!values.empty())
 	{
 		return values.front();
-	}
-	else
-	{
-		cout << "sike!" << endl;
 	}
 }
 
@@ -175,5 +196,5 @@ void minHeap::neteja(CVertex v)
 		}
 	}
 }
-
+*/
 

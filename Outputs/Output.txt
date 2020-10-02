@@ -1,14 +1,14 @@
-RUN (87.147900): "x64\Debug\GraphApplication.exe" Outputs\senseArestes_SpanningTreePrim_Out.txt Prim TestSpanningTree\senseArestes.GR Outputs\senseArestes_SpanningTreePrim.TRE
-TOTAL TIME=0.076180
-RUN (3.681320): "x64\Debug\GraphApplication.exe" Outputs\UnaAresta_SpanningTreePrim_Out.txt Prim TestSpanningTree\UnaAresta.GR Outputs\UnaAresta_SpanningTreePrim.TRE
-TOTAL TIME=0.050282
-RUN (4.169360): "x64\Debug\GraphApplication.exe" Outputs\TresArestes_SpanningTreePrim_Out.txt Prim TestSpanningTree\TresArestes.GR Outputs\TresArestes_SpanningTreePrim.TRE
-TOTAL TIME=0.050418
-RUN (4.501760): "x64\Debug\GraphApplication.exe" Outputs\Desconectat_SpanningTreePrim_Out.txt Prim TestSpanningTree\Desconectat.GR Outputs\Desconectat_SpanningTreePrim.TRE
-TOTAL TIME=0.047041
-RUN (14.430900): "x64\Debug\GraphApplication.exe" Outputs\UAB_complet_SpanningTreePrim_Out.txt Prim TestSpanningTree\UAB_complet.GR Outputs\UAB_complet_SpanningTreePrim.TRE
-TOTAL TIME=0.158553
-RUN (9.960800): "x64\Debug\GraphApplication.exe" Outputs\Graf100_SpanningTreePrim_Out.txt Prim TestSpanningTree\Graf100.GR Outputs\Graf100_SpanningTreePrim.TRE
-TOTAL TIME=0.683711
-RUN (80.928900): "x64\Debug\GraphApplication.exe" Outputs\Graf1000_SpanningTreePrim_Out.txt Prim TestSpanningTree\Graf1000.GR Outputs\Graf1000_SpanningTreePrim.TRE
-TIME OUT 80.928900.Kill command: "x64\Debug\GraphApplication.exe" Outputs\Graf1000_SpanningTreePrim_Out.txt Prim TestSpanningTree\Graf1000.GR Outputs\Graf1000_SpanningTreePrim.TRE
+RUN (3.485916): "x64\Debug\GraphApplication.exe" Outputs\senseArestes_SpanningTreePrim_Out.txt Prim TestSpanningTree\senseArestes.GR Outputs\senseArestes_SpanningTreePrim.TRE
+TOTAL TIME=0.037784
+RUN (2.000000): "x64\Debug\GraphApplication.exe" Outputs\UnaAresta_SpanningTreePrim_Out.txt Prim TestSpanningTree\UnaAresta.GR Outputs\UnaAresta_SpanningTreePrim.TRE
+TOTAL TIME=0.031791
+RUN (2.000000): "x64\Debug\GraphApplication.exe" Outputs\TresArestes_SpanningTreePrim_Out.txt Prim TestSpanningTree\TresArestes.GR Outputs\TresArestes_SpanningTreePrim.TRE
+TOTAL TIME=0.028948
+RUN (2.000000): "x64\Debug\GraphApplication.exe" Outputs\Desconectat_SpanningTreePrim_Out.txt Prim TestSpanningTree\Desconectat.GR Outputs\Desconectat_SpanningTreePrim.TRE
+TOTAL TIME=0.030765
+RUN (2.000000): "x64\Debug\GraphApplication.exe" Outputs\UAB_complet_SpanningTreePrim_Out.txt Prim TestSpanningTree\UAB_complet.GR Outputs\UAB_complet_SpanningTreePrim.TRE
+TOTAL TIME=0.085202
+RUN (2.000000): "x64\Debug\GraphApplication.exe" Outputs\Graf100_SpanningTreePrim_Out.txt Prim TestSpanningTree\Graf100.GR Outputs\Graf100_SpanningTreePrim.TRE
+TOTAL TIME=0.069996
+RUN (3.237156): "x64\Debug\GraphApplication.exe" Outputs\Graf1000_SpanningTreePrim_Out.txt Prim TestSpanningTree\Graf1000.GR Outputs\Graf1000_SpanningTreePrim.TRE
+TIME OUT 3.237156.Kill command: "x64\Debug\GraphApplication.exe" Outputs\Graf1000_SpanningTreePrim_Out.txt Prim TestSpanningTree\Graf1000.GR Outputs\Graf1000_SpanningTreePrim.TRE
